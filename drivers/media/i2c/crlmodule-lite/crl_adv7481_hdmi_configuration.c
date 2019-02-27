@@ -581,9 +581,9 @@ int adv7481_sensor_init(struct i2c_client *client)
 	dev_dbg(&client->dev, "%s ADV7481_sensor_init\n", __func__);
 	irq_workqueue = create_workqueue("adv7481_irq_workqueue");
 // irq GPIO ping unavailable on ACRN UOS
-#if (!IS_ENABLED(CONFIG_VIDEO_INTEL_UOS))
-	register_gpio_irq(client);
-#endif
+//#if (!IS_ENABLED(CONFIG_VIDEO_INTEL_UOS))
+	//register_gpio_irq(client);
+//#endif
 
 #if LINUX_VERSION_CODE < KERNEL_VERSION(4, 19, 0)
         setup_timer(&hot_plug_reset_timer, adv_hpa_reset_callback, (unsigned long) client);
